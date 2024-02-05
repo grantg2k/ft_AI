@@ -4,7 +4,7 @@ services:
   jupyter:
     build:
       context: ..
-      dockerfile: "/Users/dad/desktop/freqtrade/Dockerfile"
+      dockerfile: "/path/to/freqtrade/Dockerfile"
     restart: unless-stopped
     container_name: freqtradeJupyterServer
     # Enable GPU Image and GPU Resources (only relevant for freqAI)

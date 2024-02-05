@@ -4,7 +4,7 @@ RUN pip install -r requirements-hyperopt.txt
 
 FROM freqtradeorg/freqtrade:develop_plot
 
-# Install necessary packages including Java 17
+# Install necessary packages including Java 17 for H2O
 USER root
 RUN apt-get update && \
     apt-get install -y openjdk-17-jdk && \
