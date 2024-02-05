@@ -1,0 +1,28 @@
+---
+version: '3'
+services:
+  jupyter:
+    build:
+      context: ..
+      dockerfile: "/Users/dad/desktop/freqtrade/Dockerfile"
+    restart: unless-stopped
+    container_name: freqtradeJupyterServer
+    # Enable GPU Image and GPU Resources (only relevant for freqAI)
+    # Make sure to uncomment the whole deploy section
+#     deploy:
+#       resources:
+#         reservations:
+#           devices:
+#             - driver: nvidia
+#               count: 2
+#               capabilities: [gpu]
+#      device_ids: ["0","1"]
+    ports:
+      - "8889:8889"
+      - "12345:54321"
+    network_mode: bridge
+    volumes:
+      - "./:/freqtrade/"
+    # Default command used when running `docker compose up`
+    command: >
+      jupyter lab --port=8889 --ip 0.0.0.0 --allow-root --cpus="30"
